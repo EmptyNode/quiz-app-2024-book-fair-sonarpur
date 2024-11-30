@@ -31,22 +31,22 @@ function selectAgeGroup(ageGroup) {
   // Select appropriate question array based on language and age group
   if (selectedLanguage === "english") {
     switch (selectedAgeGroup) {
-      case "under8":
+      case "above14":
         currentQuestions = question1;
         questions = question1;
         initializeQuiz(questions);
         break;
-      case "under12":
+      case "8to12":
         currentQuestions = question2;
         questions = question2;
         initializeQuiz(questions);
         break;
-      case "under18":
+      case "12to14":
         currentQuestions = question3;
         questions = question3;
         initializeQuiz(questions);
         break;
-      case "forAll":
+      case "under8":
         currentQuestions = question4;
         questions = question4;
         initializeQuiz(questions);
@@ -54,22 +54,22 @@ function selectAgeGroup(ageGroup) {
     }
   } else {
     switch (selectedAgeGroup) {
-      case "under8":
+      case "above14":
         currentQuestions = question5;
         questions = question5;
         initializeQuiz(questions);
         break;
-      case "under12":
+      case "8to12":
         currentQuestions = question6;
         questions = question6;
         initializeQuiz(questions);
         break;
-      case "under18":
+      case "12to14":
         currentQuestions = question7;
         questions = question7;
         initializeQuiz(questions);
         break;
-      case "forAll":
+      case "under8":
         currentQuestions = question8;
         questions = question8;
         initializeQuiz(questions);

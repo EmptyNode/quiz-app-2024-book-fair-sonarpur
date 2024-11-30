@@ -7,9 +7,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background-image: url(https://assets-global.website-files.com/5d2fb52b76aabef62647ed9a/6195c8e178a99295d45307cb_allgreen1000-550.jpg);
-    background-size: cover;
+body {
+    background-image: url('data:image/svg+xml;base64,[encoded-svg-content]');
+    background-repeat: repeat;
+    background-size: 1000px 1000px;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 ::selection{
@@ -61,7 +64,7 @@ body{
 
 .selection-buttons {
     height: calc(100% - 90px);
-    background-color: #FFD700;
+    background-color: #ffd900;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -151,7 +154,7 @@ body{
     width: 60%; /* Change the width of the square box as needed */
     height: 100vh; /* Change the height of the square box as needed */
     color: #fff;
-    background: #007bff;
+    background: #c7d4e2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the shadow properties as needed */
     display: flex;
     align-items: center;
@@ -193,7 +196,7 @@ body{
     outline: none;
     border: none;
     border-radius: 5px;
-    background: red;
+    background: rgb(255, 0, 0);
     cursor: pointer;
 }
 

@@ -27,25 +27,25 @@
           <button onclick="selectLanguage('bengali')">বাংলা</button>
         </div>
       </div>
-      
+
       <!-- Update the age selection div -->
       <div class="age-select">
         <div id="age-english" style="display: none">
           <h1>Select Age Group</h1>
           <div class="selection-buttons">
+            <button onclick="selectAgeGroup('above14')">Above 14</button>
+            <button onclick="selectAgeGroup('12to14')">12 to 14</button>
+            <button onclick="selectAgeGroup('8to12')">8 to 12</button>
             <button onclick="selectAgeGroup('under8')">Under 8</button>
-            <button onclick="selectAgeGroup('under12')">Under 12</button>
-            <button onclick="selectAgeGroup('under18')">Under 18</button>
-            <button onclick="selectAgeGroup('forAll')">For All</button>
           </div>
         </div>
         <div id="age-bengali" style="display: none">
           <h1>বয়স গ্রুপ নির্বাচন করুন</h1>
           <div class="selection-buttons">
+            <button onclick="selectAgeGroup('above14')">১৪ বছরের ঊর্ধ্বে</button>
+            <button onclick="selectAgeGroup('12to14')">১২ থেকে ১৪ বছর</button>
+            <button onclick="selectAgeGroup('8to12')">৮ থেকে ১২ বছর</button>
             <button onclick="selectAgeGroup('under8')">৮ বছরের নিচে</button>
-            <button onclick="selectAgeGroup('under12')">১২ বছরের নিচে</button>
-            <button onclick="selectAgeGroup('under18')">১৮ বছরের নিচে</button>
-            <button onclick="selectAgeGroup('forAll')">সকলের জন্য</button>
           </div>
         </div>
       </div>
@@ -138,3 +138,53 @@
     </div>
   </body>
 </html>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- Geometric patterns using the exact theme colors -->
+  <g opacity="0.15">
+    <!-- Using green (#008000) -->
+    <circle cx="100" cy="100" r="50" fill="#008000" />
+    <circle cx="500" cy="150" r="40" fill="#008000" />
+    <circle cx="900" cy="100" r="45" fill="#008000" />
+
+    <!-- Using gold (#FFD700) -->
+    <circle cx="300" cy="200" r="70" fill="#FFD700" />
+    <circle cx="700" cy="250" r="60" fill="#FFD700" />
+
+    <!-- Using blue (#007bff) -->
+    <circle cx="150" cy="400" r="55" fill="#007bff" />
+    <circle cx="550" cy="450" r="45" fill="#007bff" />
+    <circle cx="950" cy="400" r="40" fill="#007bff" />
+
+    <!-- Using red (rgb(236, 21, 21)) -->
+    <circle cx="350" cy="500" r="65" fill="rgb(236, 21, 21)" />
+    <circle cx="750" cy="550" r="50" fill="rgb(236, 21, 21)" />
+
+    <!-- Bottom section repeats -->
+    <circle cx="100" cy="700" r="60" fill="#008000" />
+    <circle cx="500" cy="750" r="70" fill="#FFD700" />
+    <circle cx="900" cy="700" r="55" fill="#007bff" />
+    <circle cx="300" cy="800" r="50" fill="rgb(236, 21, 21)" />
+    <circle cx="700" cy="850" r="45" fill="#008000" />
+  </g>
+
+  <!-- Connecting lines using theme colors -->
+  <g stroke-width="2" stroke-opacity="0.1">
+    <path d="M100 100 L300 200" stroke="#008000" />
+    <path d="M300 200 L500 150" stroke="#FFD700" />
+    <path d="M500 150 L700 250" stroke="#007bff" />
+    <path d="M700 250 L900 100" stroke="rgb(236, 21, 21)" />
+
+    <path d="M150 400 L350 500" stroke="#008000" />
+    <path d="M350 500 L550 450" stroke="#FFD700" />
+    <path d="M550 450 L750 550" stroke="#007bff" />
+    <path d="M750 550 L950 400" stroke="rgb(236, 21, 21)" />
+
+    <path d="M100 700 L300 800" stroke="#008000" />
+    <path d="M300 800 L500 750" stroke="#FFD700" />
+    <path d="M500 750 L700 850" stroke="#007bff" />
+    <path d="M700 850 L900 700" stroke="rgb(236, 21, 21)" />
+  </g>
+</svg>
