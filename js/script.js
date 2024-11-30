@@ -245,7 +245,7 @@ function initializeQuiz(questions) {
     clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
     startTimerLine(widthValue); //calling startTimerLine function
-    timeText.textContent = "অবশিষ্ট সময়"; //change the text of timeText to Time Left
+    timeText.textContent = selectedLanguage === "bengali" ? "অবশিষ্ট সময়" : "Time Left";
     next_btn.classList.remove("show"); //hide the next button
   };
 
@@ -279,7 +279,7 @@ function initializeQuiz(questions) {
       clearInterval(counterLine); //clear counterLine
       startTimer(timeValue); //calling startTimer function
       startTimerLine(widthValue); //calling startTimerLine function
-      timeText.textContent = "অবশিষ্ট সময়"; //change the timeText to Time Left
+      timeText.textContent = selectedLanguage === "bengali" ? "অবশিষ্ট সময়" : "Time Left";
       next_btn.classList.remove("show"); //hide the next button
     } else {
       clearInterval(counter); //clear counter
@@ -453,33 +453,74 @@ function initializeQuiz(questions) {
     endSound.play();
   }
 
+  // function startTimer(time) {
+  //   counter = setInterval(timer, 1000);
+  //   function timer() {
+  //     if (selectedLanguage === "english") {
+  //       timeCount.textContent = time;
+  //       if (time < 9) {
+  //         timeCount.textContent = "0" + time;
+  //       }
+  //       if (time < 0) {
+  //         clearInterval(counter);
+  //         timeText.textContent = "Time Off";
+  //         // showCorrectAnswer();
+  //       }
+  //     } else {
+  //       timeCount.textContent = convertToBengaliNumber(time);
+  //       if (time < 9) {
+  //         timeCount.textContent = "০" + convertToBengaliNumber(time);
+  //       }
+  //       if (time < 0) {
+  //         clearInterval(counter);
+  //         timeText.textContent = "সময় সমাপ্ত";
+  //         // showCorrectAnswer();
+  //       }
+  //     }
+  //     time--;
+  //   }
+  // }
+
   function startTimer(time) {
     counter = setInterval(timer, 1000);
+  
     function timer() {
-      if (selectedLanguage === "english") {
-        timeCount.textContent = time;
-        if (time < 9) {
-          timeCount.textContent = "0" + time;
-        }
-        if (time < 0) {
-          clearInterval(counter);
-          timeText.textContent = "Time Off";
-          showCorrectAnswer();
-        }
+      // Format time with leading zero
+      const formattedTime = time < 10 ? `0${time}` : time;
+  
+      if (selectedLanguage === "bengali") {
+        timeCount.textContent = convertToBengaliNumber(formattedTime); // Format time in Bengali
       } else {
-        timeCount.textContent = convertToBengaliNumber(time);
-        if (time < 9) {
-          timeCount.textContent = "০" + convertToBengaliNumber(time);
-        }
-        if (time < 0) {
-          clearInterval(counter);
-          timeText.textContent = "সময় সমাপ্ত";
-          showCorrectAnswer();
-        }
+        timeCount.textContent = formattedTime; // Format time in English
       }
-      time--;
+  
+      time--; // Decrement the time value
+  
+      if (time < 0) {
+        clearInterval(counter); // Clear counter when time is less than 0
+        timeText.textContent = selectedLanguage === "bengali" ? "সময় সমাপ্ত" : "Time Off";
+  
+        const allOptions = option_list.children.length; // Get all option items
+        let correcAns = questions[que_count].answer; // Get correct answer from array
+  
+        for (i = 0; i < allOptions; i++) {
+          if (option_list.children[i].textContent == correcAns) {
+            // If option matches the correct answer
+            option_list.children[i].setAttribute("class", "option correct"); // Add green color to matched option
+            option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); // Add tick icon
+            console.log("Time Off: Auto selected correct answer.");
+          }
+        }
+  
+        for (i = 0; i < allOptions; i++) {
+          option_list.children[i].classList.add("disabled"); // Disable all options
+        }
+  
+        next_btn.classList.add("show"); // Show the next button
+      }
     }
   }
+  
 
   function startTimerLine(time) {
     counterLine = setInterval(timer, 29);
@@ -514,6 +555,10 @@ function initializeQuiz(questions) {
   function convertToBengaliNumber(number) {
     const englishNumbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const bengaliNumbers = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+
+    if(selectedLanguage === "english") {
+      return number;
+    }
 
     // Convert each digit in the number
     const bengaliNumber = number
